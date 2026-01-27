@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.default_lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    {% comment %}Jekyll SEO Tag - generates title, description, OG tags, Twitter cards, etc.{% endcomment %}
+    {% seo %}
+    
+    {% comment %}Canonical URL for bilingual content{% endcomment %}
+    {% assign current_lang = page.lang | default: site.default_lang %}
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+    
+    {% comment %}Alternate language links for SEO
+    Note: language-alternate.html sets alternate_lang and alternate_url variables{% endcomment %}
+    {% include language-alternate.html %}
+    <link rel="alternate" hreflang="{{ current_lang }}" href="{{ site.url }}{{ page.url }}" />
+    <link rel="alternate" hreflang="{{ alternate_lang }}" href="{{ site.url }}{{ alternate_url }}" />
+    <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url }}" />
+    
+    {% comment %}Additional meta tags for enhanced SEO{% endcomment %}
+    <meta name="author" content="{{ site.author.name }}" />
+    {% if page.categories %}
+    <meta name="keywords" content="{{ page.categories | join: ', ' }}" />
+    {% elsif page.tags %}
+    <meta name="keywords" content="{{ page.tags | join: ', ' }}" />
+    {% endif %}
+    
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    
+    {% comment %}Feed auto-discovery links{% endcomment %}
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }} - English" href="{{ '/feed.xml' | relative_url }}">
+    <link rel="alternate" type="application/atom+xml" title="{{ site.title }} - Français" href="{{ '/feed-fr.xml' | relative_url }}">
+    
+    {% comment %}Google Analytics tracking{% endcomment %}
+    {% include google-analytics.html %}
+  </head>
+  <body>
+    {% include header.html %}
+    
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+
+    {% include footer.html %}
+  </body>
+</html>

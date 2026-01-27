@@ -1,4 +1,74 @@
-title: Coming Soon
-description: Website coming soon
-baseurl: ""
+# Site settings
+title: "Jeff Omhover"
+tagline: "Full-Stack AI Product Leader"
+description: "Professional portfolio and resume for Jean-François (Jeff) Omhover"
 url: "https://jfomhover.info"
+baseurl: ""
+
+# Language settings
+languages: ["en", "fr"]
+default_lang: "en"
+language_names:
+  en: "English"
+  fr: "Français"
+
+lang_titles:
+  en: "Jeff Omhover"
+  fr: "Jeff Omhover"
+lang_taglines:
+  en: "Full-Stack AI Product Leader"
+  fr: "Leader Produit IA Full-Stack"
+lang_descriptions:
+  en: "Professional portfolio and resume for Jean-François (Jeff) Omhover"
+  fr: "Portfolio professionnel et CV de Jean-François (Jeff) Omhover"
+
+# Author information
+author:
+  name: "Jean-François Omhover"
+  display_name: "Jeff Omhover"
+  email: "jf.omhover@gmail.com"
+  location: "Seattle, WA"
+  tagline: "Full-Stack AI Product Leader"
+
+# Social links
+social:
+  github: "jfomhover"
+  linkedin: "jfomhover"
+  bluesky: "jeffinsea.bsky.social"
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:name/
+
+# SEO settings
+twitter:
+  username: "jeffinsea"
+  card: summary_large_image
+
+social_links:
+  - https://github.com/jfomhover
+  - https://linkedin.com/in/jfomhover
+  - https://jeffinsea.bsky.social
+
+# Cross-site linking
+sister_site:
+  name: "ThingsAI.io"
+  url: "https://thingsai.io"
+  description: "Ideas, blog posts, and AI explorations"
+
+# Build settings
+markdown: kramdown
+theme: null
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .jekyll-cache/

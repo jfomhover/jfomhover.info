@@ -1,0 +1,28 @@
+{% comment %}
+Shared logic for determining alternate language and URL mapping
+Sets the following variables:
+- current_lang: The current page language
+- alternate_lang: The alternate language
+- alternate_url: The URL for the alternate language version
+
+Note: This assumes page URLs follow the /en/ or /fr/ pattern.
+If the URL doesn't contain the expected language prefix, the replacement will be a no-op.
+{% endcomment %}
+
+{% assign current_lang = page.lang | default: site.default_lang %}
+
+{% if current_lang == "en" %}
+  {% assign alternate_lang = "fr" %}
+  {% if page.url contains "/en/" %}
+    {% assign alternate_url = page.url | replace: "/en/", "/fr/" %}
+  {% else %}
+    {% assign alternate_url = page.url | prepend: "/fr" %}
+  {% endif %}
+{% else %}
+  {% assign alternate_lang = "en" %}
+  {% if page.url contains "/fr/" %}
+    {% assign alternate_url = page.url | replace: "/fr/", "/en/" %}
+  {% else %}
+    {% assign alternate_url = page.url | prepend: "/en" %}
+  {% endif %}
+{% endif %}

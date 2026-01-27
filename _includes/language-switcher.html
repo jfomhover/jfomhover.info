@@ -1,0 +1,15 @@
+{% comment %}
+Language switcher component
+Displays a link to the alternate language version of the current page
+{% endcomment %}
+
+{% include language-alternate.html %}
+
+<div class="language-switcher">
+  <a href="{{ alternate_url | relative_url }}" 
+     class="language-link" 
+     lang="{{ alternate_lang }}"
+     title="Switch to {{ site.language_names[alternate_lang] }}">
+    {{ site.language_names[alternate_lang] }}
+  </a>
+</div>

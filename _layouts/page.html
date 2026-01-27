@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+{% comment %}JSON-LD Structured Data for Pages{% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{ page.title | escape }}",
+  "description": "{{ page.excerpt | default: page.description | strip_html | normalize_whitespace | truncate: 160 | escape }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ site.author.name }}",
+    "url": "{{ site.url }}"
+  },
+  "inLanguage": "{{ page.lang | default: site.default_lang }}",
+  "url": "{{ site.url }}{{ page.url }}"
+}
+</script>
+
+<div class="page">
+  <div class="page-content">
+    {{ content }}
+  </div>
+</div>

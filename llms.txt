@@ -1,0 +1,12 @@
+# Jeff Omhover - Professional Portfolio
+
+This is the professional portfolio site for Jeff Omhover.
+
+## Site Structure
+- Resume/CV (landing page): /en/about/
+- Project portfolio: /en/projects/
+- French version: /fr/about/
+
+## Contact
+- LinkedIn: https://linkedin.com/in/jfomhover
+- GitHub: https://github.com/jfomhover

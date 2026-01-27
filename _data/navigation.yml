@@ -1,0 +1,15 @@
+# English navigation
+en:
+  main:
+    - title: "Resume"
+      url: "/en/about/"
+    - title: "Projects"
+      url: "/en/projects/"
+
+# French navigation
+fr:
+  main:
+    - title: "CV"
+      url: "/fr/about/"
+    - title: "Projets"
+      url: "/fr/projects/"

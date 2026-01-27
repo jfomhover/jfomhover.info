@@ -1,0 +1,74 @@
+---
+layout: page
+title: "Projects"
+lang: en
+permalink: /en/projects/
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/project.css' | relative_url }}">
+
+<div class="projects-list">
+  <h1>Project Portfolio</h1>
+  
+  <p class="projects-intro">Showcase of completed projects with descriptions, context, and outcomes.</p>
+  
+  {% assign projects_en = site.projects | where: "lang", "en" | sort: "date" | reverse %}
+  
+  {% if projects_en.size > 0 %}
+    <!-- Technology filter -->
+    <div class="project-filters">
+      <label for="tech-filter">Filter by technology:</label>
+      <select id="tech-filter" onchange="filterProjects()">
+        <option value="all">All Technologies</option>
+        {% assign all_techs = "" | split: "" %}
+        {% for project in projects_en %}
+          {% if project.technologies %}
+            {% for tech in project.technologies %}
+              {% unless all_techs contains tech %}
+                {% assign all_techs = all_techs | push: tech %}
+              {% endunless %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+        {% assign sorted_techs = all_techs | sort %}
+        {% for tech in sorted_techs %}
+          <option value="{{ tech }}">{{ tech }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="projects-grid">
+      {% for project in projects_en %}
+        <article class="project-card" data-technologies="{{ project.technologies | join: ',' }}">
+          <div class="project-card-header">
+            <h2 class="project-card-title">
+              <a href="{{ project.url | relative_url }}">{{ project.title | escape }}</a>
+            </h2>
+            <p class="project-card-date">
+              <time datetime="{{ project.date | date_to_xmlschema }}">
+                {{ project.date | date: "%Y" }}
+              </time>
+            </p>
+          </div>
+          {% if project.excerpt %}
+            <div class="project-card-excerpt">
+              {{ project.excerpt }}
+            </div>
+          {% endif %}
+          {% if project.technologies and project.technologies.size > 0 %}
+            <div class="project-card-technologies">
+              {% for tech in project.technologies %}
+                <span class="tech-tag">{{ tech }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+          <a href="{{ project.url | relative_url }}" class="project-card-link">View project →</a>
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No projects yet. Check back soon!</p>
+  {% endif %}
+</div>
+
+<script src="{{ '/assets/js/projects-filter.js' | relative_url }}"></script>
