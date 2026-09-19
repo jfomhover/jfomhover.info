@@ -8,26 +8,26 @@ layout: default
 {
   "@context": "https://schema.org",
   "@type": "CreativeWork",
-  "name": "{{ page.title | escape }}",
+  "name": {{ page.title | jsonify }},
   {% if page.date %}
   "dateCreated": "{{ page.date | date_to_xmlschema }}",
   {% endif %}
   "author": {
     "@type": "Person",
-    "name": "{{ page.author | default: site.author.name }}",
-    "url": "{{ site.url }}"
+    "name": {{ page.author | default: site.author.name | jsonify }},
+    "url": {{ site.url | append: site.baseurl | jsonify }}
   },
   "creator": {
     "@type": "Person",
-    "name": "{{ site.author.name }}",
-    "url": "{{ site.url }}"
+    "name": {{ site.author.name | jsonify }},
+    "url": {{ site.url | append: site.baseurl | jsonify }}
   },
-  "description": "{{ page.excerpt | default: page.description | strip_html | normalize_whitespace | truncate: 160 | escape }}",
+  "description": {{ page.excerpt | default: page.description | strip_html | normalize_whitespace | truncate: 160 | jsonify }},
   "inLanguage": "{{ page.lang | default: site.default_lang }}",
   {% if page.technologies and page.technologies.size > 0 %}
   "keywords": "{{ page.technologies | join: ', ' }}",
   {% endif %}
-  "url": "{{ site.url }}{{ page.url }}"
+  "url": {{ site.url | append: site.baseurl | append: page.url | jsonify }}
 }
 </script>
 

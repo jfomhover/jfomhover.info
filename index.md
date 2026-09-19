@@ -1,3 +1,3 @@
 ---
-redirect_to: /en/about/
+redirect_to: /en/
 ---

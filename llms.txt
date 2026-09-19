@@ -1,6 +1,6 @@
-# Jeff Omhover - Professional Portfolio
+# J.F. Omhover - Professional Portfolio
 
-This is the professional portfolio site for Jeff Omhover.
+This is the professional portfolio site for Jean-Francois Omhover.
 
 ## Site Structure
 - Resume/CV (landing page): /en/about/

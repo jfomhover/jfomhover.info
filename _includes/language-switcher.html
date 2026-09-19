@@ -1,15 +1,40 @@
-{% comment %}
-Language switcher component
-Displays a link to the alternate language version of the current page
-{% endcomment %}
-
-{% include language-alternate.html %}
-
-<div class="language-switcher">
-  <a href="{{ alternate_url | relative_url }}" 
+{% assign current_lang = page.lang | default: site.default_lang %}
+{% assign alternate_lang = nil %}
+{% assign alternate_url = nil %}
+{% if page.translation_key %}
+  {% if current_lang == "en" %}
+    {% assign alternate_lang = "fr" %}
+  {% else %}
+    {% assign alternate_lang = "en" %}
+  {% endif %}
+  {% assign translated_posts = site.posts | where: "translation_key", page.translation_key | where: "lang", alternate_lang %}
+  {% assign translated_pages = site.pages | where: "translation_key", page.translation_key | where: "lang", alternate_lang %}
+  {% assign alternate_candidates = translated_posts | concat: translated_pages %}
+  {% assign alternate_page = alternate_candidates | first %}
+  {% if alternate_page %}
+    {% assign alternate_url = alternate_page.url %}
+  {% else %}
+    {% assign alternate_lang = nil %}
+  {% endif %}
+{% endif %}
+<div class="language-switcher" aria-label="Language">
+  {% if alternate_url %}
+  <a href="{{ alternate_url | relative_url }}"
      class="language-link" 
      lang="{{ alternate_lang }}"
      title="Switch to {{ site.language_names[alternate_lang] }}">
     {{ site.language_names[alternate_lang] }}
   </a>
+  {% else %}
+    {% if current_lang == "en" %}
+      {% assign fallback_lang = "fr" %}
+      {% assign fallback_url = "/fr/blog/" %}
+    {% else %}
+      {% assign fallback_lang = "en" %}
+      {% assign fallback_url = "/en/blog/" %}
+    {% endif %}
+    <a href="{{ fallback_url | relative_url }}" class="language-link" lang="{{ fallback_lang }}" title="Browse {{ site.language_names[fallback_lang] }}">
+      {{ site.language_names[fallback_lang] }}
+    </a>
+  {% endif %}
 </div>

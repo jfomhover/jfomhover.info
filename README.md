@@ -1,6 +1,6 @@
-# Jeff Omhover - Professional Portfolio
+# J.F. Omhover - Professional Portfolio
 
-This is the professional portfolio website for Jeff Omhover, showcasing experience, projects, and professional bio.
+This is the professional portfolio website for Jean-Francois Omhover, showcasing experience, projects, and professional bio.
 
 ## Development
 
@@ -20,11 +20,8 @@ Visit: http://localhost:4000
 - `/en/about/` - Professional biography and contact
 - `/en/projects/` - Project portfolio
 - `/fr/` - French versions of all pages
-
-### Related Sites
-
-Blog and ideas: [thingsai.io](https://thingsai.io)
+- `/en/blog/` and `/fr/blog/` - Unified blog content
 
 ## License
 
-Content © Jeff Omhover. All rights reserved.
+Content © Jean-Francois Omhover. All rights reserved.

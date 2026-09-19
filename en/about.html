@@ -1,7 +1,8 @@
 ---
 layout: page
-title: "About Jeff Omhover"
+title: "About J.F. Omhover"
 lang: en
+translation_key: about
 permalink: /en/about/
 ---
 
@@ -199,13 +200,10 @@ permalink: /en/about/
       Feel free to reach out through <a href="https://linkedin.com/in/jfomhover" target="_blank" rel="noopener noreferrer">LinkedIn</a> or 
       <a href="https://github.com/jfomhover" target="_blank" rel="noopener noreferrer">GitHub</a>.
     </p>
-    <p class="language-switch">
-      <em><a href="/fr/about/">Voir cette page en français →</a></em>
-    </p>
   </section>
 </div>
 
-<style>
+{% comment %}<style>
 /* About Page Styles */
 .about-page {
   max-width: 900px;
@@ -473,4 +471,5 @@ permalink: /en/about/
     font-size: 2.5rem;
   }
 }
-</style>
+{% endcomment %}
+<link rel="stylesheet" href="{{ '/assets/css/about.css' | relative_url }}">

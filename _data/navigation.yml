@@ -5,6 +5,8 @@ en:
       url: "/en/about/"
     - title: "Projects"
       url: "/en/projects/"
+    - title: "Blog"
+      url: "/en/blog/"
 
 # French navigation
 fr:
@@ -13,3 +15,5 @@ fr:
       url: "/fr/about/"
     - title: "Projets"
       url: "/fr/projects/"
+    - title: "Blog"
+      url: "/fr/blog/"

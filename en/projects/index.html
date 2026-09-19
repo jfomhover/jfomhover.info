@@ -2,6 +2,7 @@
 layout: page
 title: "Projects"
 lang: en
+translation_key: projects
 permalink: /en/projects/
 ---
 
@@ -35,6 +36,7 @@ permalink: /en/projects/
           <option value="{{ tech }}">{{ tech }}</option>
         {% endfor %}
       </select>
+      <span class="filter-status" id="project-status" aria-live="polite"></span>
     </div>
 
     <div class="projects-grid">
@@ -67,7 +69,11 @@ permalink: /en/projects/
       {% endfor %}
     </div>
   {% else %}
-    <p>No projects yet. Check back soon!</p>
+    <div class="projects-empty">
+      <p class="eyebrow">Work in progress</p>
+      <h2>A considered portfolio is coming.</h2>
+      <p>I am curating a small set of product and platform case studies. In the meantime, the <a href="{{ '/en/about/' | relative_url }}">about page</a> captures the scope of my work, and the <a href="{{ '/en/blog/' | relative_url }}">notebook</a> shows how I think.</p>
+    </div>
   {% endif %}
 </div>
 

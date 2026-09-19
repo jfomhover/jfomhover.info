@@ -19,7 +19,7 @@ Replace:
 
 With:
 ```html
-<img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="Jeff Omhover" class="profile-photo">
+<img src="{{ '/assets/images/profile.jpg' | relative_url }}" alt="J.F. Omhover" class="profile-photo">
 ```
 
 And add this CSS to the style section:

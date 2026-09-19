@@ -1,19 +1,15 @@
 <footer class="site-footer h-card">
-  <data class="u-url" href="{{ '/' | relative_url }}"></data>
+  {% assign footer_lang = page.lang | default: site.default_lang %}
+  <data class="u-url" href="{{ '/' | append: footer_lang | append: '/' | relative_url }}"></data>
 
   <div class="wrapper">
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">
-            {{ site.author.display_name | escape }}
-          </li>
-          <li>{{ site.author.tagline }}</li>
-          <li>{{ site.author.location }}</li>
-        </ul>
+    <div class="footer-top">
+      <div class="footer-identity">
+        <p class="footer-kicker">A working notebook on AI</p>
+        <p class="p-name">{{ site.author.display_name | escape }}</p>
+        <p>{{ site.author.tagline }} · {{ site.author.location }}</p>
       </div>
-
-      <div class="footer-col footer-col-2">
+      <div class="footer-links">
         <ul class="social-media-list">
           {% if site.social.github %}
           <li>
@@ -38,16 +34,12 @@
           {% endif %}
         </ul>
       </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{ site.description | escape }}</p>
-      </div>
     </div>
 
     <div class="footer-copyright">
       <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author.name }}. All rights reserved.</p>
       <p>Content licensed under <a href="{{ '/LICENSE' | relative_url }}">proprietary license</a>.</p>
-      <p class="analytics-notice">This site uses Google Analytics to understand visitor traffic and improve user experience.</p>
+      <p class="analytics-notice">Notes on building useful AI systems, and the humans who build them.</p>
     </div>
   </div>
 </footer>
