@@ -3,7 +3,7 @@ layout: post
 content_type: post
 title: "Mental space vs latent space"
 subtitle: "A meditation on agent (non)selfhood, and human-agent co-design"
-excerpt: "Because agents are presented to me in conversation, and engage in natural language, I am encouraged to think of them as having a _self_. But they don't have a self. I think of them as arising from what I like to imagine as a _probability field_: the model's broad generative potential, actualized as tokens due to conditions."
+excerpt: "Because agents appear to me in conversation and respond through natural language, I am encouraged to think of them as having a _self_. But they don't have a self. I think of them as arising from what I like to imagine as a _probability field_: the model's broad generative potential, actualized as tokens due to conditions."
 date: 2026-09-27
 topic: AI & Work
 tags: [Cognition, Vibe-coding, Collaboration, Co-Design]
