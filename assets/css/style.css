@@ -144,6 +144,7 @@ img { max-width: 100%; height: auto; }
 .post-header { border-bottom: 1px solid var(--rule); margin-bottom: 2.5rem; padding-bottom: 2rem; }
 .post-context { color: var(--muted); display: inline-block; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; margin-bottom: 2rem; text-decoration: none; text-transform: uppercase; }
 .post-context:hover { color: #617514; }
+.ai-disclaimer { color: var(--muted); font-family: var(--sans); font-size: 0.75rem; font-style: italic; line-height: 1.45; margin: 0 0 1.5rem; }
 .post-title { font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: -0.055em; line-height: 0.98; margin: 0 0 1rem; }
 .post-subtitle { color: var(--muted); font-size: 1.2rem; line-height: 1.45; margin: 0 0 1.2rem; }
 .post-meta { color: var(--muted); font-size: 0.8rem; margin: 0; }

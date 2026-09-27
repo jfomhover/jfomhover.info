@@ -27,6 +27,14 @@ layout: default
   </div>
   {% endif %}
 
+  <p class="ai-disclaimer" role="note">
+    {% if page.lang == "fr" %}
+    Avec l'aide de l'IA : cette entrée a été produite avec l'IA pour la recherche, l'écriture, l'édition et la relecture. L'auteur reste responsable du texte final.
+    {% else %}
+    AI-assisted: This notebook entry was produced with AI for research, writing, editing, and review. The author remains responsible for the final text.
+    {% endif %}
+  </p>
+
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
   </div>
