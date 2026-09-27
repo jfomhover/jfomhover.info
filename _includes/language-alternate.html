@@ -1,0 +1,20 @@
+{% assign current_lang = page.lang | default: site.default_lang %}
+{% assign alternate_lang = nil %}
+{% assign alternate_url = nil %}
+
+{% if page.translation_key %}
+  {% if current_lang == "en" %}
+    {% assign alternate_lang = "fr" %}
+  {% else %}
+    {% assign alternate_lang = "en" %}
+  {% endif %}
+  {% assign translated_posts = site.posts | where: "translation_key", page.translation_key | where: "lang", alternate_lang %}
+  {% assign translated_pages = site.pages | where: "translation_key", page.translation_key | where: "lang", alternate_lang %}
+  {% assign alternate_candidates = translated_posts | concat: translated_pages %}
+  {% assign alternate_page = alternate_candidates | first %}
+  {% if alternate_page %}
+    {% assign alternate_url = alternate_page.url %}
+  {% else %}
+    {% assign alternate_lang = nil %}
+  {% endif %}
+{% endif %}

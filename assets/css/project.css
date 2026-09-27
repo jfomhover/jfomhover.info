@@ -1,0 +1,31 @@
+.projects-list { max-width: 980px; }
+.projects-list > h1 { font-family: var(--serif); font-size: clamp(3rem, 7vw, 5.5rem); letter-spacing: -0.06em; line-height: 0.95; margin: 0; }
+.projects-intro { color: var(--muted); font-size: 1.1rem; max-width: 620px; }
+.project-filters { align-items: center; border-bottom: 1px solid var(--rule); display: flex; gap: 1rem; margin: 2rem 0 0; padding: 1rem 0; }
+.project-filters label { color: var(--muted); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.project-filters select { background: var(--paper); border: 1px solid var(--rule); color: var(--ink); font: inherit; font-size: 0.8rem; padding: 0.5rem 0.7rem; }
+.projects-grid { display: grid; gap: 1px; grid-template-columns: repeat(2, 1fr); margin-top: 2rem; }
+.project-card { background: var(--white); border-top: 4px solid var(--ink); display: flex; flex-direction: column; min-height: 280px; padding: 1.5rem; }
+.project-card:hover { border-top-color: #617514; }
+.project-card-title { font-family: var(--serif); font-size: 1.8rem; letter-spacing: -0.04em; line-height: 1.05; margin: 0; }
+.project-card-title a { text-decoration: none; }
+.project-card-title a:hover { color: #617514; }
+.project-card-date { color: var(--muted); font-size: 0.75rem; margin: 0.4rem 0 1.2rem; }
+.project-card-excerpt { color: #4f5953; flex-grow: 1; font-size: 0.92rem; line-height: 1.55; }
+.project-card-technologies { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1rem 0; }
+.tech-tag, .technology { background: var(--paper-deep); color: #4f5953; font-size: 0.7rem; padding: 0.25rem 0.45rem; }
+.project-card-link { border-bottom: 1px solid var(--ink); font-size: 0.75rem; font-weight: 800; margin-top: auto; text-decoration: none; text-transform: uppercase; width: fit-content; }
+.project-card-link:hover { color: #617514; }
+.project { max-width: var(--measure); margin: 0 auto; }
+.project-header { border-bottom: 1px solid var(--rule); margin-bottom: 2.5rem; padding-bottom: 2rem; }
+.project-title { font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 5rem); letter-spacing: -0.055em; line-height: 0.98; margin: 0; }
+.project-date { color: var(--muted); font-size: 0.8rem; }
+.project-content { font-family: var(--serif); }
+.project-content h1, .project-content h2, .project-content h3 { font-family: var(--sans); }
+.project-technologies { border-top: 1px solid var(--rule); margin-top: 2rem; padding-top: 1rem; }
+.project-technologies strong { color: #617514; display: block; font-size: 0.7rem; letter-spacing: 0.1em; margin-bottom: 0.7rem; text-transform: uppercase; }
+
+@media (max-width: 680px) {
+  .projects-grid { grid-template-columns: 1fr; }
+  .project-filters { align-items: flex-start; flex-direction: column; }
+}

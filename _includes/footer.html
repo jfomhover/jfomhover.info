@@ -1,0 +1,45 @@
+<footer class="site-footer h-card">
+  {% assign footer_lang = page.lang | default: site.default_lang %}
+  <data class="u-url" href="{{ '/' | append: footer_lang | append: '/' | relative_url }}"></data>
+
+  <div class="wrapper">
+    <div class="footer-top">
+      <div class="footer-identity">
+        <p class="footer-kicker">A working notebook on AI</p>
+        <p class="p-name">{{ site.author.display_name | escape }}</p>
+        <p>{{ site.author.tagline }} · {{ site.author.location }}</p>
+      </div>
+      <div class="footer-links">
+        <ul class="social-media-list">
+          {% if site.social.github %}
+          <li>
+            <a href="https://github.com/{{ site.social.github }}">
+              <span>GitHub: {{ site.social.github }}</span>
+            </a>
+          </li>
+          {% endif %}
+          {% if site.social.linkedin %}
+          <li>
+            <a href="https://linkedin.com/in/{{ site.social.linkedin }}">
+              <span>LinkedIn: {{ site.social.linkedin }}</span>
+            </a>
+          </li>
+          {% endif %}
+          {% if site.social.bluesky %}
+          <li>
+            <a href="https://bsky.app/profile/{{ site.social.bluesky }}">
+              <span>Bluesky: @{{ site.social.bluesky }}</span>
+            </a>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-copyright">
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.author.name }}. All rights reserved.</p>
+      <p>Content licensed under <a href="{{ '/LICENSE' | relative_url }}">proprietary license</a>.</p>
+      <p class="analytics-notice">Notes on building useful AI systems, and the humans who build them.</p>
+    </div>
+  </div>
+</footer>

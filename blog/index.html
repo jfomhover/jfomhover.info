@@ -1,0 +1,59 @@
+---
+layout: page
+title: "Blog"
+lang: fr
+translation_key: blog
+permalink: /fr/blog/
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
+
+<div class="blog-index">
+  <h1>Blog</h1>
+  <p class="section-intro">Articles, essais et flashcards.</p>
+  <div class="blog-filters" role="group" aria-label="Filtrer les publications">
+    <button class="blog-filter active" aria-pressed="true" data-filter="all">Tout</button>
+    <button class="blog-filter" aria-pressed="false" data-filter="post">Articles</button>
+    <button class="blog-filter" aria-pressed="false" data-filter="essay">Essais</button>
+    <button class="blog-filter" aria-pressed="false" data-filter="flashcard">Flashcards</button>
+  </div>
+  <p class="filter-status" aria-live="polite"></p>
+
+  <div class="blog-list">
+    {% assign posts = site.posts | where: "lang", "fr" | sort: "date" | reverse %}
+    {% for item in posts %}
+    <article class="blog-card" data-content-type="{{ item.content_type | default: 'post' }}">
+      <p class="post-type">{{ item.content_type | default: "post" | capitalize }}</p>
+      <h2><a href="{{ item.url | relative_url }}">{{ item.title | escape }}</a></h2>
+      {% if item.subtitle %}<p class="post-subtitle">{{ item.subtitle | escape }}</p>{% endif %}
+      <p class="post-meta"><time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%-d %B %Y" }}</time>{% if item.topic %} · {{ item.topic }}{% endif %}</p>
+      {% if item.excerpt %}<div class="post-excerpt">{{ item.excerpt | strip_html }}</div>{% endif %}
+      <a class="read-more" href="{{ item.url | relative_url }}">Lire la suite</a>
+    </article>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const buttons = document.querySelectorAll('.blog-filter');
+  const cards = document.querySelectorAll('.blog-card');
+  const status = document.querySelector('.filter-status');
+  const updateStatus = function (count) { status.textContent = count + (count === 1 ? ' entrée' : ' entrées'); };
+  updateStatus(cards.length);
+  buttons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      buttons.forEach(function (item) { item.classList.remove('active'); item.setAttribute('aria-pressed', 'false'); });
+      button.classList.add('active');
+      button.setAttribute('aria-pressed', 'true');
+      const filter = button.dataset.filter;
+      let visible = 0;
+      cards.forEach(function (card) {
+        card.hidden = filter !== 'all' && card.dataset.contentType !== filter;
+        if (!card.hidden) visible += 1;
+      });
+      updateStatus(visible);
+    });
+  });
+});
+</script>

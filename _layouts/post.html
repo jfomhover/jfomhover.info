@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<article class="post h-entry" itemscope itemtype="https://schema.org/Article">
+  <a class="post-context" href="{{ '/' | append: page.lang | append: '/blog/' | relative_url }}">← {% if page.lang == "fr" %}Retour au carnet{% else %}Back to writing{% endif %}</a>
+  <header class="post-header">
+    <p class="post-type">{{ page.content_type | default: "post" | capitalize }}</p>
+    {% if page.pinned %}<p class="post-pinned">Featured</p>{% endif %}
+    <h1 class="post-title p-name" itemprop="headline">{{ page.title | escape }}</h1>
+    {% if page.subtitle %}
+    <p class="post-subtitle">{{ page.subtitle | escape }}</p>
+    {% endif %}
+    {% if page.date %}
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%B %-d, %Y" }}
+      </time>
+    </p>
+    {% endif %}
+  </header>
+
+  {% if page.topic or page.tags %}
+  <div class="post-metadata">
+    {% if page.topic %}<span class="post-topic">{{ page.topic }}</span>{% endif %}
+    {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+  </div>
+  {% endif %}
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {% if page.source %}<p class="post-source"><strong>Source:</strong> {{ page.source }}</p>{% endif %}
+</article>

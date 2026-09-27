@@ -1,0 +1,77 @@
+# Site settings
+title: "J.F. Omhover"
+tagline: "Full-Stack AI Tech Lead"
+description: "Professional portfolio and blog for Jean-François (Jeff) Omhover"
+url: "https://jfomhover.info"
+baseurl: ""
+
+# Language settings
+languages: ["en", "fr"]
+default_lang: "en"
+language_names:
+  en: "English"
+  fr: "Français"
+
+lang_titles:
+  en: "J.F. Omhover"
+  fr: "J.F. Omhover"
+lang_taglines:
+  en: "Full-Stack AI Tech Lead"
+  fr: "Lead Technique IA Full-Stack"
+lang_descriptions:
+  en: "Professional portfolio and blog for Jean-François (Jeff) Omhover"
+  fr: "Portfolio professionnel et blog de Jean-François (Jeff) Omhover"
+
+# Author information
+author:
+  name: "Jean-François Omhover"
+  display_name: "J.F. Omhover"
+  email: "jf.omhover@proton.me"
+  location: "Paris, France"
+  tagline: "Full-Stack AI Tech Lead"
+
+# Social links
+social:
+  github: "jfomhover"
+  linkedin: "jfomhover"
+  bluesky: "jeffinsea.bsky.social"
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /posts/:path/
+  projects:
+    output: true
+    permalink: /:collection/:name/
+
+# SEO settings
+twitter:
+  username: "jeffinsea"
+  card: summary_large_image
+
+social_links:
+  - https://github.com/jfomhover
+  - https://linkedin.com/in/jfomhover
+  - https://jeffinsea.bsky.social
+
+# The former ThingsAI content is now part of this site's unified blog.
+
+# Build settings
+markdown: kramdown
+theme: null
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-redirect-from
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - migration-plan.md
+  - executive-review.md
+  - tmp/
+  - .jekyll-cache/
