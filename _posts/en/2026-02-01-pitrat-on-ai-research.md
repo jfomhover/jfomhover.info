@@ -6,7 +6,7 @@ subtitle: "Building Solutions to Understand Problems"
 lang: en
 date: 2026-02-01
 topic: Research
-pinned: true
+pinned: false
 redirect_from:
   - /memos/en/2026-02-01-pitrat-on-ai-research/
 ---

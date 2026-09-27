@@ -7,7 +7,7 @@ lang: en
 date: 2026-01-23
 topic: Education
 tags: [Computer Science Education, Cognition]
-pinned: true
+pinned: false
 translation_key: computational-thinking
 redirect_from:
   - /memos/en/2026-01-23-computational-thinking/
